@@ -7,6 +7,7 @@ function App() {
       <GlobalStyles />
       <h1>hollo react!</h1>
       <p>안녕하세요</p>
+      <p>정종찬입니다.....</p>
       <Mobile />
     </div>
   );
