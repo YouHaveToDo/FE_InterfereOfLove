@@ -1,6 +1,6 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
-import { Grid, Text, Input } from "../elements";
+import { Grid, Text, Input } from "../elements/index_02";
 import { history } from "../redux/configureStore";
 import signBG from "../images/signup_bg.png";
 

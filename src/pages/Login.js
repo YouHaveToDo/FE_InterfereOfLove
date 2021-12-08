@@ -2,7 +2,7 @@ import React from "react";
 import styled, { keyframes } from "styled-components";
 import LoginPng from "../images/login_Image.png";
 import LoveLogo from "../images/love_logo.png";
-import { Grid, Text, Input } from "../elements";
+import { Grid, Text, Input } from "../elements/index_02";
 import { history } from "../redux/configureStore";
 
 const login = (props) => {
