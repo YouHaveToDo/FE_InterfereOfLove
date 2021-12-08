@@ -12,10 +12,11 @@ const Signup = (props) => {
           <SignupTitle>연애의 참견</SignupTitle>
           <SignupForm>
             <Grid>
-              <Text size="15px" color="#fff">
+              <Text size="12px" color="#efefef">
                 아이디
               </Text>
               <Input
+                Pfont="20px"
                 TR="0.5s"
                 BT="1.5px solid #ffffff"
                 Pcolor="#fff"
@@ -24,10 +25,11 @@ const Signup = (props) => {
               />
             </Grid>
             <Grid margin="2vw 0 0 0">
-              <Text size="15px" color="#fff">
+              <Text size="12px" color="#fff">
                 닉네임
               </Text>
               <Input
+                Pfont="20px"
                 TR="0.5s"
                 BT="1px solid #ffffff"
                 Pcolor="#fff"
@@ -36,10 +38,11 @@ const Signup = (props) => {
               />
             </Grid>
             <Grid margin="2vw 0 0 0">
-              <Text size="15px" color="#fff">
+              <Text size="12px" color="#fff">
                 비밀번호
               </Text>
               <Input
+                Pfont="20px"
                 TR="0.5s"
                 BT="1px solid #ffffff"
                 Pcolor="#fff"
@@ -48,10 +51,11 @@ const Signup = (props) => {
               />
             </Grid>
             <Grid margin="2vw 0 0 0">
-              <Text size="15px" color="#fff">
+              <Text size="12px" color="#fff">
                 비밀번호 확인
               </Text>
               <Input
+                Pfont="20px"
                 TR="0.5s"
                 BT="1px solid #ffffff"
                 Pcolor="#fff"

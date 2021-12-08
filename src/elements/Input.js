@@ -13,6 +13,7 @@ const Input = (props) => {
     Pcolor,
     BT,
     TR,
+    Pfont,
   } = props;
 
   if (multiLine) {
@@ -34,6 +35,7 @@ const Input = (props) => {
       <Grid>
         {label && <Text margin="0">{label}</Text>}
         <ElInput
+          Pfont={Pfont}
           Pcolor={Pcolor}
           BT={BT}
           TR={TR}
@@ -54,6 +56,7 @@ Input.defaultProps = {
   value: "",
   Pcolor: false,
   TR: false,
+  Pfont: false,
   _onChange: () => {},
 };
 
@@ -72,9 +75,11 @@ const ElInput = styled.input`
   padding: 8px 2px;
   font-weight: bold;
   ${(props) => (props.Pcolor ? `color: ${props.Pcolor};` : "")}
+  ${(props) => (props.Pfont ? `font-size: ${props.Pfont};` : "")}
 
   &:focus {
     outline: none;
+    ${(props) => (props.Pfont ? `font-size: ${props.Pfont};` : "")}
     ${(props) => (props.BT ? `border-bottom: ${props.BT};` : "")}
     ${(props) => (props.Pcolor ? `color: ${props.Pcolor};` : "")}
     transition: 0.85s;
