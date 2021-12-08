@@ -4,11 +4,11 @@ import { BrowserRouter, Route } from "react-router-dom";
 import { ConnectedRouter } from "connected-react-router";
 import { history } from "../redux/configureStore";
 
-import PostList from "../pages/PostList";
-import Login from "../pages/Login";
-import Signup from "../pages/Signup";
-import PostWrite from "../pages/PostWrite";
-import PostDetail from "../pages/PostDetail";
+// import PostList from "../pages/PostList";
+// import Login from "../pages/Login";
+// import Signup from "../pages/Signup";
+// import PostWrite from "../pages/PostWrite";
+// import PostDetail from "../pages/PostDetail";
 
 import GlobalStyles from "../components/GlobalStyles";
 import CommentList from "../components/CommentList";
@@ -19,12 +19,12 @@ function App() {
       <GlobalStyles />
       <MobileBox>
         <ConnectedRouter history={history}>
-          <Route path="/" exact component={PostList} />
+          {/* <Route path="/" exact component={PostList} />
           <Route path="/login" exact component={Login} />
           <Route path="/signup" exact component={Signup} />
           <Route path="/write" exact component={PostWrite} />
           <Route path="/write/:id" exact component={PostWrite} />
-          <Route path="/post/:id" exact component={PostDetail} />
+          <Route path="/post/:id" exact component={PostDetail} /> */}
         </ConnectedRouter>
         <CommentList />
       </MobileBox>
