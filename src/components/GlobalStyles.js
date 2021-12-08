@@ -9,6 +9,24 @@ const GlobalStyles = createGlobalStyle`
       font-weight: normal;
       font-style: normal;
     }
+    @font-face {
+      font-family: 'Noto';
+      src: url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100&display=swap') format('woff');
+      font-weight: lighter;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Noto';
+      src: url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap') format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Noto';
+      src: url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700&display=swap') format('woff');
+      font-weight: bold;
+      font-style: normal;
+    }
     a{
         text-decoration: none;
         color: inherit;
