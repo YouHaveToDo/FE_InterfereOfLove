@@ -15,7 +15,7 @@ const List = (props) => {
     </Ellist>
   );
 };
-
+// 주석
 const Ellist = styled.div`
   width: 100%;
   background-color: #fff;
