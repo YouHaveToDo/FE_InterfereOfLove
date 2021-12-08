@@ -6,7 +6,7 @@ const Mobile = (props) => {
 
   return (
     <React.Fragment>
-      <MobileBox {...props}></MobileBox>
+      <MobileBox></MobileBox>
     </React.Fragment>
   );
 };
@@ -20,12 +20,12 @@ const Mobile = (props) => {
 const MobileBox = styled.div`
   max-width: 414px;
   width: 414px;
-  height: 100vh;
-  border: 1px solid #333;
+  height: 896px;
+  background-color: #fa4a0c;
   position: absolute;
-  top: 0;
+  top: 50%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -50%);
 `;
 
 export default Mobile;
