@@ -4,20 +4,20 @@ import styled from "styled-components";
 import Detail from "./pages/Detail";
 import Write from "./pages/Write";
 import Main from "./pages/Main";
-import { BrowserRouter, Route } from "react-router-dom";
+import { Route } from "react-router-dom";
 import { ConnectedRouter } from "connected-react-router";
-// import { history } from "../redux/configureStore";
+import { history } from "./redux/configureStore";
 
 function App() {
   return (
     <React.Fragment>
       <GlobalStyles />
       <MobileBox>
-        <BrowserRouter>
-          <Route path="/" exact component={Main} />
+        <ConnectedRouter history={history}>
+          <Route path="/main" exact component={Main} />
           <Route path="/write" exact component={Write} />
           <Route path="/detail" exact component={Detail} />
-        </BrowserRouter>
+        </ConnectedRouter>
       </MobileBox>
     </React.Fragment>
   );
@@ -25,14 +25,17 @@ function App() {
 
 const MobileBox = styled.div`
   max-width: 414px;
-  width: 414px;
-  height: 896px;
-  background-color: #fa4a0c;
+  max-height: 896px;
+  width: 100%;
+  height: 100%;
+  border-radius: 30px;
+  border: 1px solid #efefef;
+  background-color: #ffffff;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  border-radius: 30px;
+  overflow: hidden;
 `;
 
 export default App;

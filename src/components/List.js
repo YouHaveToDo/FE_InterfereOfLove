@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import Text from "../elements/Text";
-import Grid from "../elements/Grid";
+import Text from "../elements/Text_01";
+import Grid from "../elements/Grid_01";
 import Items from "./Item";
 const List = (props) => {
   return (
