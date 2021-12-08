@@ -52,11 +52,11 @@ const getPostDB = () => {
   return async (dispatch, getState, { history }) => {
     try {
       console.log("getPostDB try!!");
+
       const response = await apis.getPost();
-      
       const articles = response.data.articles;
       console.log(articles);
-      
+
       dispatch(getPosts(articles));
     } catch (error) {
       console.log(error);
@@ -76,9 +76,10 @@ const addPostDB = (post_info) => {
 
     try {
       console.log("addPostDB try!!");
+
       const response = await apis.addPost(article_info);
       console.log(response);
-    
+
       response && dispatch(addPost(article_info));
       history.push("/");
     } catch (error) {
@@ -91,6 +92,7 @@ const updatePostDB = (article_id, article_info) => {
   return async (dispatch, getState, { history }) => {
     try {
       console.log("updatePostDB try!!");
+
       const response = await apis.updatePost(article_id, article_info);
       console.log(response);
 
@@ -134,6 +136,8 @@ const getPostDetailDB = (article_id) => {
         title: data.title,
         content: data.content,
         createDate: data.createDate,
+        greenCount: 0,
+        redCount: 0,
       };
 
       dispatch(getDetailPost(articleOne));

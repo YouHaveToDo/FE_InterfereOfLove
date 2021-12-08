@@ -45,7 +45,7 @@ const addCommentDB = (article_id, comment_info) => {
       const response = await apis.addComment(article_id, comment_info);
       const comments = response.data.comments;
 
-      dispatch(setComment(comments));
+      dispatch(addComment(comments));
     } catch (error) {
       console.log(error);
     }
