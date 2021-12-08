@@ -1,17 +1,13 @@
 import React from "react";
-import styled from "styled-components";
-import { BrowserRouter, Route } from "react-router-dom";
+import GlobalStyles from "./components/GlobalStyles";
+import Hello from "./pages/Hello";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+
+import { history } from "./redux/configureStore";
+import { Route } from "react-router-dom";
 import { ConnectedRouter } from "connected-react-router";
-import { history } from "../redux/configureStore";
-
-// import PostList from "../pages/PostList";
-// import Login from "../pages/Login";
-// import Signup from "../pages/Signup";
-// import PostWrite from "../pages/PostWrite";
-// import PostDetail from "../pages/PostDetail";
-
-import GlobalStyles from "../components/GlobalStyles";
-import CommentList from "../components/CommentList";
+import styled from "styled-components";
 
 function App() {
   return (
@@ -19,14 +15,10 @@ function App() {
       <GlobalStyles />
       <MobileBox>
         <ConnectedRouter history={history}>
-          {/* <Route path="/" exact component={PostList} />
+          <Route path="/" exact component={Hello} />
           <Route path="/login" exact component={Login} />
           <Route path="/signup" exact component={Signup} />
-          <Route path="/write" exact component={PostWrite} />
-          <Route path="/write/:id" exact component={PostWrite} />
-          <Route path="/post/:id" exact component={PostDetail} /> */}
         </ConnectedRouter>
-        <CommentList />
       </MobileBox>
     </React.Fragment>
   );
@@ -34,13 +26,17 @@ function App() {
 
 const MobileBox = styled.div`
   max-width: 414px;
-  width: 414px;
-  height: 896px;
-  background-color: #fa4a0c;
+  max-height: 896px;
+  width: 100%;
+  height: 100%;
+  border-radius: 30px;
+  border: 1px solid #efefef;
+  background-color: #ffffff;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  overflow: hidden;
 `;
 
 export default App;
