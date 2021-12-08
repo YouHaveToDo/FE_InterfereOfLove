@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-import Grid from "../elements/Grid";
-import Text from "../elements/Text";
+import Grid from "../elements/Grid_01";
+import Text from "../elements/Text_01";
 import Circle from "../elements/Circle";
-import Input from "../elements/Input";
+import Input from "../elements/Input_01";
 import ImageA from "../elements/ImageA";
 import ImageB from "../elements/ImageB";
-import Button from "../elements/Button";
+import Button from "../elements/Button_01";
 import List from "../components/List";
 import { MailRounded } from "@material-ui/icons";
 import ImageC from "../elements/ImageC";
