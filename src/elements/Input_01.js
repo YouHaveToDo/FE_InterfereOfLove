@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const Input = React.forwardRef(
-  ({ borderB, placeholder, height, value, _onClick, children }, ref) => {
+  ({ borderB, placeholder, height, value, _onClick, _onChange, children }, ref) => {
     return (
       <ElTextarea
         borderB={borderB}
@@ -10,6 +10,7 @@ const Input = React.forwardRef(
         height={height}
         ref={ref}
         onClick={_onClick}
+        onChange={_onChange}
       >
         {children}
       </ElTextarea>
