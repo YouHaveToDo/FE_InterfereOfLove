@@ -24,9 +24,9 @@ function App() {
           <Route path="/login" exact component={Login} />
           <Route path="/signup" exact component={Signup} />
 
-          <Route path="/main" exact component={Main} />
+          <Route path="/main/:username" exact component={Main} />
           <Route path="/write" exact component={Write} />
-          <Route path="/detail/:article_id/:user_id" exact component={Detail} />
+          <Route path="/detail/:article_id/:user_id/:username" exact component={Detail} />
           <Route path="/edit/:article_id/:user_id" exact component={Edit} />
         </ConnectedRouter>
       </MobileBox>

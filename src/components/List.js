@@ -23,7 +23,7 @@ const List = (props) => {
               key={p.article_id}
               post_list={p}
               _onClick={() => {
-                history.push(`/detail/${p.article_id}/${p.username}`);
+                history.push(`/detail/${p.article_id}/${p.username}/${props.username}`);
               }}
             />
           );

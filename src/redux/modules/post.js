@@ -15,9 +15,7 @@ const getDetailPost = createAction(GET_DETAIL_POST, (articleOne) => ({
 
 // initial state
 const initialState = {
-
   list: [],
-
 
   articles: {
     article_id: "artice_id",
@@ -29,17 +27,6 @@ const initialState = {
   },
 
   articleOne: {
-    article_id: "artice_id",
-    type: "type",
-    nickname: "nickname",
-    title: "지금 관계.. 썸이 맞을까요?",
-    content: "좋아하는 후배가 있습니다.",
-    createDate: "2021-12-10 10:00",
-    greenCount: 10,
-    redCount: 5,
-  },
-
-  articleTwo: {
     article_id: "artice_id",
     type: "type",
     nickname: "nickname",
@@ -74,6 +61,8 @@ const getPostDB = () => {
 
 const addPostDB = (post_info) => {
   return async (dispatch, getState, { history }) => {
+    const username = getState().user.username;
+
     console.log(post_info);
     const article_info = {
       type: post_info.type,
@@ -87,7 +76,7 @@ const addPostDB = (post_info) => {
       const response = await apis.addPost(article_info);
       console.log(response);
 
-      history.push("/main");
+      history.push(`/main/${username}`);
     } catch (error) {
       console.log(error);
     }
@@ -96,13 +85,14 @@ const addPostDB = (post_info) => {
 
 const updatePostDB = (article_id, article_infos) => {
   return async (dispatch, getState, { history }) => {
+    const username = getState().user.username;
     try {
       console.log("updatePostDB try!!");
 
       const response = await apis.updatePost(article_id, article_infos);
       console.log(response);
 
-      history.push("/main");
+      history.push(`/main/${username}`);
     } catch (error) {
       console.log(error);
     }
@@ -111,13 +101,14 @@ const updatePostDB = (article_id, article_infos) => {
 
 const deletePostDB = (article_id) => {
   return async (dispatch, getState, { history }) => {
+    const username = getState().user.username;
     try {
       console.log("deletePostDB try!!");
 
       const response = await apis.deletePost(article_id);
       console.log(response);
 
-      history.push("/main");
+      history.push(`/main/${username}`);
     } catch (error) {
       console.log(error);
     }
