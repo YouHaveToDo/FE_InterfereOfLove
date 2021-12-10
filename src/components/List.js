@@ -40,9 +40,20 @@ const Ellist = styled.div`
   border-radius: 30px;
   position: absolute;
   bottom: 0;
+  overflow-y: auto;
+  &::-webkit-scrollbar{
+    width: 8px;
+    height: 20px;
+  } 
 
-  overflow-y: scroll;
-
+  &::-webkit-scrollbar-thumb{
+    background-color: #FFADA6;
+    border: none;
+    border-radius: 30px;
+  }
+  &::-webkit-scrollbar-track{
+    background-color: transparent;
+  }
 `;
 
 export default List;
