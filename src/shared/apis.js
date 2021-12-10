@@ -26,7 +26,7 @@ const instance = axios.create({
 instance.interceptors.request.use((config) => {
   config.headers["Content-Type"] = "application/json; charset=utf-8";
   config.headers["X-Requested-With"] = "XMLHttpRequest";
-  config.headers["authorization"] = getToken() ? `Bearer ${getToken()}` : "";
+  config.headers["authorization"] = getToken() ? `${getToken()}` : "";
   config.headers.Accept = "application/json";
   return config;
 });
