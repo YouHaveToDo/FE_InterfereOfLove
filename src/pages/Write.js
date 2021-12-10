@@ -78,7 +78,7 @@ const Write = (props) => {
             type="radio"
             name="type"
             value="greenlight"
-            onChange={changeType}
+            _onChange={changeType}
           />
           <Text margin="4px 0 0 0" noto size="14px">
             그린라이트
@@ -87,7 +87,7 @@ const Write = (props) => {
             type="radio"
             name="type"
             value="counseling"
-            onChange={changeType}
+            _onChange={changeType}
           />
           <Text margin="4px 0 0 0" noto size="14px">
             고민상담소
