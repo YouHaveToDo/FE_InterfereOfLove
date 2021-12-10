@@ -64,7 +64,6 @@ export default handleActions(
         setToken(JSON.stringify(action.payload.token));
         sessionStorage.setItem("user", JSON.stringify(action.payload.user));
         draft.is_login = true;
-        draft.user = action.payload.user;
       }),
   },
   initialState
