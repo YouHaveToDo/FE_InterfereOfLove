@@ -13,21 +13,20 @@ import ImageC from "../elements/ImageC";
 import BtnImg from "../images/Btn.png";
 
 import { history } from "../redux/configureStore";
-import {postActions} from "../redux/modules/post";
+import { postActions } from "../redux/modules/post";
 import { useSelector, useDispatch } from "react-redux";
 
 const Main = (props) => {
   const dispatch = useDispatch();
-  const post_list = useSelector((state)=> state.post.list);
-  console.log(post_list);
-  
+
   React.useEffect(() => {
     dispatch(postActions.getPostDB());
   }, []);
 
+  const post_list = useSelector((state) => state.post.list);
+  console.log(post_list);
   return (
     <div>
-
       <ImageC />
       <Grid padding="0 0 0 30px">
         <SubTitle>역시 남의 연애가 개꿀잼😆</SubTitle>
@@ -36,12 +35,11 @@ const Main = (props) => {
       <List post_list={post_list}></List>
       <Btn
         onClick={() => {
-          history.push('/Write');
+          history.push("/Write");
         }}
       >
         +
       </Btn>
-
     </div>
   );
 };
@@ -68,7 +66,7 @@ const Btn = styled.div`
   height: 68px;
   border-radius: 50%;
   position: absolute;
-  background-color: #FF4B3A;
+  background-color: #ff4b3a;
   bottom: 39px;
   right: 25px;
   color: #fff;

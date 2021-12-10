@@ -9,16 +9,20 @@ import apis from "../shared/apis";
 import { postActions } from "../redux/modules/post";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
+import { history } from "../redux/configureStore";
 
 const Detail = (props) => {
   const dispatch = useDispatch();
   const params = useParams();
+  const user_id = params.user_id;
+  const _article_id = Number(params.article_id);
   console.log(params);
-  console.log(params.article_id);
-  console.log(params.user_id);
-  
+
+
+  console.log(_article_id);
   React.useEffect(() => {
-    dispatch(postActions.getPostDetailDB(params.article_id));
+    dispatch(postActions.getPostDetailDB(_article_id));
+
   }, []);
   
   const article_info = useSelector((state) => {
@@ -32,6 +36,7 @@ const Detail = (props) => {
         try {
           console.log("lightDB(green) try!!");
           const response = await apis.greenLight(article_id);
+          console.log("비동기 통신 완료됨");
           console.log(response);
         } catch (error) {
           console.log(error);
@@ -60,7 +65,12 @@ const Detail = (props) => {
               dispatch(postActions.deletePostDB(params.article_id));
             }}
           />
-          <ImageA />
+          <ImageA
+            _onClick={() => {
+              console.log(`/edit/${_article_id}/${user_id}`);
+              history.push(`/edit/${_article_id}/${user_id}`);
+            }}
+          />
         </Grid>
         <Grid margin="0 0 30px 0">
           <Text>{article_info.nickname}</Text>

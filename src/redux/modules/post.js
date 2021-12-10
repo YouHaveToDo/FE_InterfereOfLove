@@ -15,7 +15,9 @@ const getDetailPost = createAction(GET_DETAIL_POST, (articleOne) => ({
 
 // initial state
 const initialState = {
-  list: [ ],
+
+  list: [],
+
 
   articles: {
     article_id: "artice_id",
@@ -27,6 +29,17 @@ const initialState = {
   },
 
   articleOne: {
+    article_id: "artice_id",
+    type: "type",
+    nickname: "nickname",
+    title: "지금 관계.. 썸이 맞을까요?",
+    content: "좋아하는 후배가 있습니다.",
+    createDate: "2021-12-10 10:00",
+    greenCount: 10,
+    redCount: 5,
+  },
+
+  articleTwo: {
     article_id: "artice_id",
     type: "type",
     nickname: "nickname",
@@ -154,7 +167,9 @@ export default handleActions(
 
     [GET_DETAIL_POST]: (state, action) =>
       produce(state, (draft) => {
-        draft.articleOne = {...action.payload.articleOne};
+        draft.articleOne = {
+          ...action.payload.articleOne,
+        };
       }),
   },
   initialState

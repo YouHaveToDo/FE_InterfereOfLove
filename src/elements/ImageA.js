@@ -3,7 +3,11 @@ import React from "react";
 import Vector from "../images/Vector.png";
 
 const ImageA = (props) => {
-  return <Img src={Vector} />;
+  return <Img src={Vector} onClick={props._onClick} />;
+};
+
+ImageA.defalutProps = {
+  _onClick: () => {},
 };
 
 const Img = styled.img`
