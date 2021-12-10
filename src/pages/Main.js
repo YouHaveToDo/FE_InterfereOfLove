@@ -12,6 +12,7 @@ import { MailRounded } from "@material-ui/icons";
 import ImageC from "../elements/ImageC";
 import BtnImg from "../images/Btn.png";
 
+import { useParams } from "react-router-dom";
 import { history } from "../redux/configureStore";
 import { postActions } from "../redux/modules/post";
 import { useSelector, useDispatch } from "react-redux";
@@ -23,6 +24,8 @@ const Main = (props) => {
     dispatch(postActions.getPostDB());
   }, []);
 
+  const params = useParams();
+  const username = params.username;
   const post_list = useSelector((state) => state.post.list);
   console.log(post_list);
   return (
@@ -32,7 +35,7 @@ const Main = (props) => {
         <SubTitle>역시 남의 연애가 개꿀잼😆</SubTitle>
         <Title>연애의 참견</Title>
       </Grid>
-      <List post_list={post_list}></List>
+      <List post_list={post_list} username={username}></List>
       <Btn
         onClick={() => {
           history.push("/Write");

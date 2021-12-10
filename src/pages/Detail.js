@@ -20,8 +20,13 @@ import { ContactSupportOutlined } from "@material-ui/icons";
 const Detail = (props) => {
   const comment = React.useRef("1");
   const dispatch = useDispatch();
+
+  // const username = useSelector((state) => state.user.username); // 새로고침시 리듀서 state 값 업어짐 -> 파라미터로 받음
+  
+
   const params = useParams();
   const user_id = params.user_id;
+  const username = params.username;
   const _article_id = Number(params.article_id);
   console.log(params);
 
@@ -64,17 +69,21 @@ const Detail = (props) => {
           <Text>{article_info.type}</Text>
         </Title>
         <Grid flex right margin="20px 0">
-          <ImageB
-            _onClick={() => {
-              dispatch(postActions.deletePostDB(params.article_id));
-            }}
-          />
-          <ImageA
-            _onClick={() => {
-              console.log(`/edit/${_article_id}/${user_id}`);
-              history.push(`/edit/${_article_id}/${user_id}`);
-            }}
-          />
+          {username == user_id && (
+            <React.Fragment>
+              <ImageB
+                _onClick={() => {
+                  dispatch(postActions.deletePostDB(params.article_id));
+                }}
+              />
+              <ImageA
+                _onClick={() => {
+                  console.log(`/edit/${_article_id}/${user_id}`);
+                  history.push(`/edit/${_article_id}/${user_id}`);
+                }}
+              />
+            </React.Fragment>
+          )}
         </Grid>
         <Grid margin="0 0 30px 0">
           <Text>{article_info.nickname}</Text>
