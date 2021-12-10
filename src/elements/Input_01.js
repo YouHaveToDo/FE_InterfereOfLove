@@ -1,18 +1,30 @@
 import React from "react";
 import styled from "styled-components";
 
-const Input = (props) => {
-  const { borderB } = props;
-  return (
-    <ElTextarea
-      borderB={borderB}
-      placeholder={props.placeholder}
-      height={props.height}
-    />
-  );
-};
+
+const Input = React.forwardRef(
+  ({ borderB, placeholder, height, value, _onClick, children, _onChange }, ref) => {
+    return (
+      <ElTextarea
+        borderB={borderB}
+        placeholder={placeholder}
+        height={height}
+        ref={ref}
+        onClick={_onClick}
+        onChange={_onChange}
+      >
+        {children}
+      </ElTextarea>
+    );
+  }
+);
+
 Input.defaultProps = {
   borderB: "1px solid #333",
+  value: "이상한 선배",
+  children: null,
+  _onClick: () => {},
+  _onChange: () => {},
 };
 const ElTextarea = styled.textarea`
   border: none;

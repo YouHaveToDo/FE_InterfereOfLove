@@ -8,6 +8,7 @@ import Signup from "./pages/Signup";
 import Detail from "./pages/Detail";
 import Write from "./pages/Write";
 import Main from "./pages/Main";
+import Edit from "./pages/Edit";
 
 import { Route } from "react-router-dom";
 import { ConnectedRouter } from "connected-react-router";
@@ -25,7 +26,8 @@ function App() {
 
           <Route path="/main" exact component={Main} />
           <Route path="/write" exact component={Write} />
-          <Route path="/detail" exact component={Detail} />
+          <Route path="/detail/:article_id/:user_id" exact component={Detail} />
+          <Route path="/edit/:article_id/:user_id" exact component={Edit} />
         </ConnectedRouter>
       </MobileBox>
     </React.Fragment>

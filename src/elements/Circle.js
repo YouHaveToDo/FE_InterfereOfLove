@@ -2,15 +2,30 @@ import React from "react";
 import styled from "styled-components";
 
 const Circle = (props) => {
-  const { color, width, children, margin, height, space } = props;
+  const {
+    color,
+    width,
+    children,
+    margin,
+    height,
+    space,
+    cursor,
+    _onClick,
+    id,
+  } = props;
   const styles = {
     color,
     width,
     margin,
     height,
     space,
+    cursor,
   };
-  return <CircleRound {...styles}>{children}</CircleRound>;
+  return (
+    <CircleRound {...styles} onClick={_onClick} id={id}>
+      {children}
+    </CircleRound>
+  );
 };
 
 Circle.defaultProps = {
@@ -20,6 +35,8 @@ Circle.defaultProps = {
   height: "16px",
   margin: false,
   space: false,
+  cursor: "default",
+  _onClick: () => {},
 };
 
 const CircleRound = styled.div`
@@ -33,8 +50,8 @@ const CircleRound = styled.div`
   width: ${(props) => props.width};
   height: ${(props) => props.height};
   ${(props) => (props.margin ? `margin: ${props.margin};` : "")}
-  ${(props) => (props.space ? `justify-content: space-evenly;` : "")}
   border-radius: 50%;
+  ${(props) => (props.cursor ? `cursor: ${props.cursor};` : "")}
 `;
 
 export default Circle;
