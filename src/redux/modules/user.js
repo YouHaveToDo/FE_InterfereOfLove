@@ -43,7 +43,8 @@ const loginDB = (username, password) => {
       })
       .catch((err) => {
         console.log(err);
-        // console.dir(err.response.data.errorMessage);
+        window.alert('아이디 / 비밀번호를 확인해주세요! 🥸')
+        console.dir(err.response.data.errorMessage);
       });
   };
 };
@@ -63,8 +64,8 @@ const signupDB = (username, nickname, password, password2) => {
         history.push("/login");
       })
       .catch((err) => {
-        // console.log(err);
-        // console.dir(err.response.data.errorMessage);
+        console.log(err);
+        console.dir(err.response.data.errorMessage);
       });
   };
 };
