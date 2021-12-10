@@ -2,8 +2,13 @@ import React from "react";
 import styled from "styled-components";
 
 const Button = (props) => {
-  const { _onClick } = props;
-  return <ElButton onClick={_onClick}>완료</ElButton>;
+
+  return <ElButton onClick={props._onClick}>완료</ElButton>;
+};
+
+Button.defaultProps = {
+  _onClick: () => {},
+
 };
 
 const ElButton = styled.button`

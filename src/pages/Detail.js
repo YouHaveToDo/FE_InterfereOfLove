@@ -5,23 +5,63 @@ import Text from "../elements/Text_01";
 import Circle from "../elements/Circle";
 import ImageA from "../elements/ImageA";
 import ImageB from "../elements/ImageB";
+import apis from "../shared/apis";
+import { postActions } from "../redux/modules/post";
+import { useSelector, useDispatch } from "react-redux";
+import { useParams } from "react-router-dom";
 
 const Detail = (props) => {
+  const dispatch = useDispatch();
+  const params = useParams();
+  console.log(params);
+  React.useEffect(() => {
+    dispatch(postActions.getPostDetailDB(params));
+  }, []);
+  const article_info = useSelector((state) => {
+    console.log(state);
+    return state.post.articleOne;
+  });
+
+  const lightDB = (article_id, e) => {
+    return async () => {
+      if (e.target.id == "green") {
+        try {
+          console.log("lightDB(green) try!!");
+          const response = await apis.greenLight(article_id);
+          console.log(response);
+        } catch (error) {
+          console.log(error);
+        }
+      } else if (e.target.id == "red") {
+        try {
+          console.log("lightDB(red) try!!");
+          const response = await apis.redLight(article_id);
+          console.log(response);
+        } catch (error) {
+          console.log(error);
+        }
+      }
+    };
+  };
   return (
     <DetailPage>
       <Grid padding="33px 58px">
         <Title>
           <Circle />
-          <Text>그린라이트</Text>
+          <Text>{article_info.type}</Text>
         </Title>
         <Grid flex right margin="20px 0">
-          <ImageB />
+          <ImageB
+            _onClick={() => {
+              dispatch(postActions.deletePostDB(params.article_id));
+            }}
+          />
           <ImageA />
         </Grid>
         <Grid margin="0 0 30px 0">
-          <Text>복학생 오빠</Text>
+          <Text>{article_info.nickname}</Text>
           <Text noto lighter margin="5px 0 0 0">
-            12/06 22:52
+            {article_info.createDate}
           </Text>
         </Grid>
         <Grid>
@@ -29,7 +69,7 @@ const Detail = (props) => {
             제목
           </Text>
           <Text padding="10px 0" border="1px solid #000">
-            저에게 잘 웃는 후배, 그린 라이트 인가요?
+            {article_info.title}
           </Text>
         </Grid>
         <Grid padding="15px 0">
@@ -46,23 +86,36 @@ const Detail = (props) => {
             자주 보여줍니다.
             <br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
             ..... 이거 그린 라이트 인가요
+            {article_info.content}
           </Text>
         </Grid>
         <Grid flex padding="35px 0 ">
           <Grid flex center wrap>
-            <Circle width="108px" height="108px">
+            <Circle
+              width="108px"
+              height="108px"
+              cursor="pointer"
+              id="green"
+              _onClick={lightDB}
+            >
               그린라이트
             </Circle>
             <Text margin="15px" noto>
-              20표 (100%)
+              {article_info.greenCount}표
             </Text>
           </Grid>
           <Grid flex center wrap>
-            <Circle width="108px" height="108px" color="#FF4B3A">
+            <Circle
+              width="108px"
+              height="108px"
+              color="#FF4B3A"
+              cursor="pointer"
+              id="red"
+            >
               레드라이트
             </Circle>
             <Text margin="15px" noto>
-              0표 (0%)
+              {article_info.redCount}표
             </Text>
           </Grid>
         </Grid>

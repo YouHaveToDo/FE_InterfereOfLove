@@ -1,4 +1,5 @@
 const getToken = () => {
+
     const token = sessionStorage.getItem('token');
   
     if (token) {
@@ -29,3 +30,4 @@ const getToken = () => {
   };
   
   export { getToken, setToken, delToken };
+
