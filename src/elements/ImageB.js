@@ -3,7 +3,7 @@ import React from "react";
 import Group from "../images/Group.png";
 
 const ImageB = (props) => {
-  return <Img src={Group} onClick={props._onClick} float={props.float} />;
+  return <Img src={Group} onClick={props._onClick} float={props.float} id={props.id} />;
 };
 
 ImageB.defaultProps = {
