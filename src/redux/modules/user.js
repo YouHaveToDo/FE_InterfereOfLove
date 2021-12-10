@@ -25,11 +25,20 @@ const loginDB = (username, password) => {
     apis
       .login(data)
       .then((response) => {
+        console.log(response);
+        console.log(response.headers);
+        console.log(response.headers.authorization);
+
+        const token = response.headers.authorization;
+        console.log(typeof token);
+        setToken(token);
+        console.log("토큰저장완료!");
+        //sessionStorage.setItem("user", JSON.stringify(user));
         window.alert("로그인 성공 🔥");
         history.replace("/main");
       })
       .catch((err) => {
-        // console.log(err); // 참조
+        console.log(err);
         // console.dir(err.response.data.errorMessage);
       });
   };
@@ -61,10 +70,7 @@ export default handleActions(
   {
     [SET_USER]: (state, action) =>
       produce(state, (draft) => {
-        setToken(JSON.stringify(action.payload.token));
-        sessionStorage.setItem("user", JSON.stringify(action.payload.user));
         draft.is_login = true;
-        draft.user = action.payload.user;
       }),
   },
   initialState
