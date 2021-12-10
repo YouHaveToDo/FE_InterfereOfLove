@@ -14,11 +14,15 @@ const Detail = (props) => {
   const dispatch = useDispatch();
   const params = useParams();
   console.log(params);
+  console.log(params.article_id);
+  console.log(params.user_id);
+  
   React.useEffect(() => {
-    dispatch(postActions.getPostDetailDB(params));
+    dispatch(postActions.getPostDetailDB(params.article_id));
   }, []);
+  
   const article_info = useSelector((state) => {
-    console.log(state);
+    console.log(state.post.articleOne);
     return state.post.articleOne;
   });
 
@@ -82,10 +86,6 @@ const Detail = (props) => {
             border="1px solid #000"
             padding="0 0 20px 0"
           >
-            동아리에서 만난 후배가 있습니다. 어느 순간부터 제 앞에서 웃는 모습을
-            자주 보여줍니다.
-            <br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
-            ..... 이거 그린 라이트 인가요
             {article_info.content}
           </Text>
         </Grid>

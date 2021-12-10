@@ -39,6 +39,7 @@ const Ellist = styled.div`
   border-radius: 30px;
   position: absolute;
   bottom: 0;
+  overflow-y: scroll;
 `;
 
 export default List;
