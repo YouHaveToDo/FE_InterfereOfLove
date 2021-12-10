@@ -9,10 +9,10 @@ const Items = (props) => {
       <Grid margin="0 0 0 0" flex>
         <Icon></Icon>
         <Grid padding="0 30px 0 10px">
-          <Text color="#FA4A0C" size="10px">
+          <Text color="#FF4B3A" size="2px">
             고민상담
           </Text>
-          <Text size="18px" margin="4px 0">
+          <Text color="#555555" size="18px" margin="5px 0">
             50대 썸녀.... 이 관계 괜찮은걸...
           </Text>
           <Grid flex between>
@@ -42,7 +42,7 @@ const Item = styled.div`
   padding: 20px 0 20px 28px;
   border-radius: 15px;
   margin-top: 20px;
-  box-shadow: 1px 4px 10px rgba(98, 29, 5, 0.4);
+  box-shadow: 0px 5px 7px rgba(255, 75, 58, 0.3);
 `;
 
 export default Items;

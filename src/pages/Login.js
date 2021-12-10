@@ -2,10 +2,26 @@ import React from "react";
 import styled, { keyframes } from "styled-components";
 import LoginPng from "../images/login_Image.png";
 import LoveLogo from "../images/love_logo.png";
-import { Grid, Text, Input } from "../elements/index_02";
+import { Grid, Text, Input, Button } from "../elements/index_02";
 import { history } from "../redux/configureStore";
+import { actionCreators as userActions } from "../redux/modules/user";
+import { useDispatch } from "react-redux";
 
-const login = (props) => {
+const Login = (props) => {
+  const dispatch = useDispatch();
+
+  const [username, setId] = React.useState("");
+  const [password, setPwd] = React.useState("");
+
+  const login = () => {
+    if (username === "" || password === "") {
+      window.alert("아이디, 패스워드 모두 입력해주세요 🥸");
+      return;
+    }
+
+    dispatch(userActions.loginDB(username, password));
+  };
+
   return (
     <React.Fragment>
       <LoginBox>
@@ -15,25 +31,45 @@ const login = (props) => {
         <LoginForm>
           <Grid>
             <Text color="#cccccc">아이디</Text>
-            <Input Pcolor="#555" placeholder="" _onChange={(e) => {}} />
+            <Input
+              Pcolor="#555"
+              type="text"
+              placeholder=""
+              _onChange={(e) => {
+                setId(e.target.value);
+              }}
+            />
           </Grid>
-          <Grid margin="2vw 0 0 0">
+          <Grid margin="1.7rem 0 0 0">
             <Text color="#cccccc">비밀번호</Text>
-            <Input Pcolor="#555" placeholder="" _onChange={(e) => {}} />
+            <Input
+              FF="Open Sans"
+              type="password"
+              Pcolor="#555"
+              placeholder=""
+              _onChange={(e) => {
+                setPwd(e.target.value);
+              }}
+            />
           </Grid>
         </LoginForm>
       </LoginBox>
       <ButtonBox>
-        <ButtonLogin onClick={() => {}}>
-          <p>로그인</p>
-        </ButtonLogin>
-        <ButtonSignup
-          onClick={() => {
+        <Button
+          bgColor="#ff4b3a"
+          color="#fff"
+          text="로그인"
+          _onClick={login}
+        ></Button>
+        <Button
+          bgColor="#fff"
+          color="#fa4a0c"
+          margin="1.2rem 0 0 0"
+          text="회원가입"
+          _onClick={() => {
             history.push("/Signup");
           }}
-        >
-          <p>회원가입</p>
-        </ButtonSignup>
+        ></Button>
       </ButtonBox>
     </React.Fragment>
   );
@@ -70,7 +106,6 @@ const LoginBox = styled.div`
   width: 100%;
   height: 70%;
   background-color: #fff;
-  position: relative;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -78,15 +113,15 @@ const LoginBox = styled.div`
 
 const LoginImage = styled.div`
   margin-top: 3rem;
-  width: 280px;
-  height: 280px;
-  background-color: #FF4B3A;
+  width: 16rem;
+  height: 16rem;
+  background-color: #ff4b3a;
   background-image: url(${LoginPng});
   background-position: left top;
   background-size: 112%;
   border-radius: 100%;
   animation: ${fadein} 1s;
-  box-shadow: 0px 5px 18px rgba(250, 74, 12, 0.5);
+  box-shadow: 0px 5px 10px rgba(255, 75, 58, 0.7);
 `;
 
 const LoginLoveImage = styled.div`
@@ -94,7 +129,7 @@ const LoginLoveImage = styled.div`
   height: 7.5rem;
   position: absolute;
   right: 50px;
-  top: 7.5%;
+  top: 2rem;
   z-index: 9999;
   background-image: url(${LoveLogo});
   background-position: center;
@@ -128,32 +163,4 @@ const ButtonBox = styled.div`
   animation: ${fadein} 1s;
 `;
 
-const ButtonLogin = styled.div`
-  width: 314px;
-  height: 70px;
-  border-radius: 30px;
-  border: none;
-  background-color: #FF4B3A;
-  color: #ffffff;
-  text-align: center;
-  line-height: 70px;
-  box-shadow: 0px 5px 10px rgba(255, 75, 58, 0.3);
-
-  &:hover {
-    box-shadow: 0px 5px 10px rgba(255, 75, 58, 0.75);
-    transition: 0.5s;
-  }
-
-  &:not(:hover) {
-    box-shadow: 0px 3px 8px rgba(255, 75, 58, 0.3);
-    transition: 0.5s;
-  }
-`;
-
-const ButtonSignup = styled(ButtonLogin)`
-  color: #fa4a0c;
-  background-color: #fff;
-  margin-top: 1.2rem;
-`;
-
-export default login;
+export default Login;

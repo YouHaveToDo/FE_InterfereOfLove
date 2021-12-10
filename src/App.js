@@ -1,11 +1,10 @@
 import React from "react";
 import GlobalStyles from "./components/GlobalStyles";
+import styled from "styled-components";
 
 import Hello from "./pages/Hello";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-
-import styled from "styled-components";
 import Detail from "./pages/Detail";
 import Write from "./pages/Write";
 import Main from "./pages/Main";
@@ -36,10 +35,10 @@ function App() {
 const MobileBox = styled.div`
   max-width: 414px;
   max-height: 896px;
-  width: 100%;
-  height: 100%;
+  width: 98%;
+  height: 98%;
   border-radius: 30px;
-  border: 1px solid #efefef;
+  border: 2px solid #efefef;
   background-color: #ffffff;
   position: absolute;
   top: 50%;
