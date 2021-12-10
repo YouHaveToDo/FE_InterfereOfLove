@@ -2,12 +2,13 @@ import React from "react";
 import styled from "styled-components";
 
 const Input = (props) => {
-  const { borderB } = props;
+  const { borderB, _onChange } = props;
   return (
     <ElTextarea
       borderB={borderB}
       placeholder={props.placeholder}
       height={props.height}
+      onChange={_onChange}
     />
   );
 };
