@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-
+import { useParams } from "react-router-dom";
+import { history } from "../redux/configureStore";
 import { postActions } from "../redux/modules/post";
 import styled from "styled-components";
 
@@ -18,7 +19,10 @@ const Write = (props) => {
   const [type, setType] = React.useState("");
   const [title, setTitle] = React.useState("");
   const [content, setContent] = React.useState("");
-
+  const params = useParams();
+  console.log(params);
+  const user_name = params.username;
+  console.log(user_name);
   const changeType = (e) => {
     setType(e.target.value);
   };
@@ -52,6 +56,7 @@ const Write = (props) => {
     // }
 
     dispatch(postActions.addPostDB(post_info));
+    history.push(`/main/${user_name}`);
   };
 
   React.useEffect(() => {});

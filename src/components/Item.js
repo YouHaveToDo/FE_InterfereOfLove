@@ -4,20 +4,18 @@ import Text from "../elements/Text_01";
 import Grid from "../elements/Grid_01";
 
 const Items = (props) => {
-  console.log(props.post_list);
-  const {post_list, _onClick} = props;
+  // console.log(props.post_list);
+  const { post_list, _onClick } = props;
   return (
     <Item onClick={_onClick}>
       <Grid margin="0 0 0 0" flex>
         <Icon></Icon>
         <Grid padding="0 30px 0 10px">
-
           <Text color="#FA4A0C" size="10px">
             {post_list.type}
           </Text>
           <Text size="18px" margin="4px 0">
             {post_list.title}
-
           </Text>
           <Grid flex between>
             <Text size="10px" color="#ccc">

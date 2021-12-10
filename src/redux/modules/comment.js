@@ -55,6 +55,7 @@ const addCommentDB = (article_id, comment_info) => {
 };
 
 const deleteCommentDB = (comment_id) => {
+  console.log("미들웨어");
   return async (dispatch, getState, { history }) => {
     try {
       console.log("deleteCommentDB try 시작!");
@@ -88,7 +89,8 @@ export default handleActions(
     [GET_COMMENT]: (state, action) =>
       produce(state, (draft) => {
         //draft.list = action.payload.comments; -> [[{}]]
-        draft.list.push(...action.payload.articles); //[{}]
+
+        draft.list.push(...action.payload.comments); //[{}]
       }),
   },
   initialState
