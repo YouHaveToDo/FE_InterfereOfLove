@@ -59,9 +59,10 @@ const getPostDB = () => {
   };
 };
 
-const addPostDB = (post_info) => {
+const addPostDB = (post_info, user_name) => {
   return async (dispatch, getState, { history }) => {
     const username = getState().user.username;
+    console.log(username);
 
     console.log(post_info);
     const article_info = {
@@ -75,8 +76,8 @@ const addPostDB = (post_info) => {
 
       const response = await apis.addPost(article_info);
       console.log(response);
-
-      history.push(`/main/${username}`);
+      console.log(user_name);
+      // history.push(`/main/${user_name}`);
     } catch (error) {
       console.log(error);
     }

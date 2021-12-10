@@ -3,7 +3,7 @@ import React from "react";
 import Group from "../images/Group.png";
 
 const ImageB = (props) => {
-  return <Img src={Group} onClick={props._onClick} />;
+  return <Img src={Group} onClick={props._onClick} float={props.float} />;
 };
 
 ImageB.defaultProps = {
@@ -15,6 +15,7 @@ const Img = styled.img`
   width: 18px;
   height: 18px;
   cursor: pointer;
+  ${(props) => (props.float ? `float: ${props.float};` : "")}
 `;
 
 export default ImageB;

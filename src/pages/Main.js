@@ -25,7 +25,9 @@ const Main = (props) => {
   }, []);
 
   const params = useParams();
+  console.log(params);
   const username = params.username;
+  console.log(username);
   const post_list = useSelector((state) => state.post.list);
   console.log(post_list);
   return (
@@ -38,7 +40,7 @@ const Main = (props) => {
       <List post_list={post_list} username={username}></List>
       <Btn
         onClick={() => {
-          history.push("/Write");
+          history.push(`/Write/${username}`);
         }}
       >
         +
