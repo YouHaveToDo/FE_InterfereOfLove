@@ -5,52 +5,56 @@ import Text from "../elements/Text_01";
 import Circle from "../elements/Circle";
 import ImageA from "../elements/ImageA";
 import ImageB from "../elements/ImageB";
+import ImageD from "../elements/ImageD";
+import Input from "../elements/Input_01";
+import InputC from "../elements/Input_03";
+import CommentList from "../components/CommentList";
 import apis from "../shared/apis";
 import { postActions } from "../redux/modules/post";
+import { commentActions } from "../redux/modules/comment";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { history } from "../redux/configureStore";
+import { ContactSupportOutlined } from "@material-ui/icons";
 
 const Detail = (props) => {
+  const comment = React.useRef("1");
   const dispatch = useDispatch();
   const params = useParams();
   const user_id = params.user_id;
   const _article_id = Number(params.article_id);
   console.log(params);
 
-
-  console.log(_article_id);
-  React.useEffect(() => {
-    dispatch(postActions.getPostDetailDB(_article_id));
-
-  }, []);
-  
   const article_info = useSelector((state) => {
     console.log(state.post.articleOne);
     return state.post.articleOne;
   });
 
-  const lightDB = (article_id, e) => {
-    return async () => {
-      if (e.target.id == "green") {
-        try {
-          console.log("lightDB(green) try!!");
-          const response = await apis.greenLight(article_id);
-          console.log("비동기 통신 완료됨");
-          console.log(response);
-        } catch (error) {
-          console.log(error);
-        }
-      } else if (e.target.id == "red") {
-        try {
-          console.log("lightDB(red) try!!");
-          const response = await apis.redLight(article_id);
-          console.log(response);
-        } catch (error) {
-          console.log(error);
-        }
-      }
-    };
+  const [green, setGreen] = React.useState(false);
+  const [red, setRed] = React.useState(false);
+
+  console.log(_article_id);
+  React.useEffect(() => {
+    dispatch(postActions.getPostDetailDB(_article_id));
+  }, [green, red]);
+
+  const lightGDB = async () => {
+    try {
+      const response = await apis.greenLight(_article_id);
+      console.log(response);
+      setGreen(!green);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  const lightLDB = async () => {
+    try {
+      const response = await apis.redLight(_article_id);
+      console.log(response);
+      setRed(!red);
+    } catch (err) {
+      console.log(err);
+    }
   };
   return (
     <DetailPage>
@@ -106,7 +110,7 @@ const Detail = (props) => {
               height="108px"
               cursor="pointer"
               id="green"
-              _onClick={lightDB}
+              _onClick={lightGDB}
             >
               그린라이트
             </Circle>
@@ -121,6 +125,7 @@ const Detail = (props) => {
               color="#FF4B3A"
               cursor="pointer"
               id="red"
+              _onClick={lightLDB}
             >
               레드라이트
             </Circle>
@@ -128,6 +133,18 @@ const Detail = (props) => {
               {article_info.redCount}표
             </Text>
           </Grid>
+        </Grid>
+        <Grid relative={"relative"}>
+          <InputC border={"none"} ref={comment} />
+          <ImageD
+            _onClick={() => {
+              console.log(comment.current.value);
+              dispatch(
+                commentActions.addCommentDB(_article_id, comment.current.value)
+              );
+            }}
+          />
+          <CommentList />
         </Grid>
       </Grid>
     </DetailPage>

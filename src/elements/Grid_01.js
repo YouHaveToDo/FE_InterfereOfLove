@@ -17,6 +17,7 @@ const Grid = (props) => {
     wrap,
     between,
     _onClick,
+    relative,
   } = props;
 
   const styles = {
@@ -32,10 +33,13 @@ const Grid = (props) => {
     center: center,
     wrap: wrap,
     between: between,
+    relative: relative,
   };
   return (
     <React.Fragment>
-      <GridBox {...styles} onClick={_onClick}>{children}</GridBox>
+      <GridBox {...styles} onClick={_onClick}>
+        {children}
+      </GridBox>
     </React.Fragment>
   );
 };
@@ -59,6 +63,7 @@ Grid.defaultProps = {
 const GridBox = styled.div`
   width: ${(props) => props.width};
   box-sizing: border-box;
+  ${(props) => (props.relative ? `position: ${props.relative};` : "")}
   ${(props) => (props.padding ? `padding: ${props.padding};` : "")}
   ${(props) => (props.wrap ? `flex-wrap: wrap;` : "")}
   ${(props) => (props.between ? `justify-content: space-between;` : "")}

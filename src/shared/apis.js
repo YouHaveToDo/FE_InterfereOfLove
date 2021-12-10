@@ -6,7 +6,6 @@ const instance = axios.create({
     "http://13.125.188.103" /*요청을 www.aa.com/user로 보낸다면, www.aa.com까지 기록*/,
 
   //withCredentials: true,//자격요건: 쿠키
-
 });
 
 // 쿠키를 요청에 포함하고 싶으면 다음 2가지 작업을 해주면 됩니다.
@@ -48,12 +47,11 @@ const apis = {
 
   //게시물
   getPost: () => instance.get("/home"), //게시글 조회
-  
+
   addPost: (article_info) => instance.post(`/api/article`, article_info), //게시글 작성
 
   updatePost: (article_id, article_infos) =>
     instance.put(`/api/article/${article_id}`, article_infos), //게시글 수정
-
 
   getPostDetail: (article_id) => instance.get(`api/article/${article_id}`), //게시글 상세페이지 조회
   deletePost: (article_id) => instance.delete(`/api/article/${article_id}`), //게시글 삭제
@@ -61,8 +59,8 @@ const apis = {
   //댓글
   getComment: (article_id) => instance.get(`/api/${article_id}/comment`), // 댓글 조회
   addComment: (article_id, comment_info) =>
-    instance.post(`/api/commnet/${article_id}`, comment_info), // 댓글 작성
-  deleteComment: (comment_id) => instance.delete(`/api/commnet/${comment_id}`), // 댓글 삭제
+    instance.post(`/api/comment/${article_id}`, comment_info), // 댓글 작성
+  deleteComment: (comment_id) => instance.delete(`/api/comment/${comment_id}`), // 댓글 삭제
 
   //라이트
   greenLight: (article_id) => instance.post(`/api/article/${article_id}/green`), // 그린라이트
