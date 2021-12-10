@@ -17,12 +17,16 @@ const Detail = (props) => {
   const user_id = params.user_id;
   const _article_id = Number(params.article_id);
   console.log(params);
+
+
   console.log(_article_id);
   React.useEffect(() => {
     dispatch(postActions.getPostDetailDB(_article_id));
+
   }, []);
+  
   const article_info = useSelector((state) => {
-    console.log(state);
+    console.log(state.post.articleOne);
     return state.post.articleOne;
   });
 

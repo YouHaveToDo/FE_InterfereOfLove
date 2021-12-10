@@ -15,7 +15,9 @@ const getDetailPost = createAction(GET_DETAIL_POST, (articleOne) => ({
 
 // initial state
 const initialState = {
+
   list: [],
+
 
   articles: {
     article_id: "artice_id",
