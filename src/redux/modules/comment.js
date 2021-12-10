@@ -1,6 +1,7 @@
 import { createAction, handleActions } from "redux-actions";
 import { produce } from "immer";
-import apis from "@shared/apis";
+import apis from "../../shared/apis";
+import { ContactSupportOutlined } from "@material-ui/icons";
 
 // action type
 const GET_COMMENT = "GET_COMMENT";
@@ -41,6 +42,7 @@ const addCommentDB = (article_id, comment_info) => {
   return async (dispatch, getState, { history }) => {
     try {
       console.log("addCommentDB try 시작!");
+      console.log(article_id, comment_info);
       const response = await apis.addComment(article_id, comment_info);
       console.log(response);
 
