@@ -4,23 +4,25 @@ import Text from "../elements/Text_01";
 import Grid from "../elements/Grid_01";
 
 const Items = (props) => {
+  console.log(props.post_list);
+  const {post_list, _onClick} = props;
   return (
-    <Item>
+    <Item onClick={_onClick}>
       <Grid margin="0 0 0 0" flex>
         <Icon></Icon>
         <Grid padding="0 30px 0 10px">
           <Text color="#FA4A0C" size="10px">
-            고민상담
+            {post_list.type}
           </Text>
           <Text size="18px" margin="4px 0">
-            50대 썸녀.... 이 관계 괜찮은걸...
+            {post_list.title}
           </Text>
           <Grid flex between>
             <Text size="10px" color="#ccc">
-              마포구꿀주먹
+              {post_list.nickname}
             </Text>
             <Text size="10px;" color="#ccc">
-              2021. 12. 06 10:00
+              {post_list.createDate}
             </Text>
           </Grid>
         </Grid>

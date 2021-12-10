@@ -4,7 +4,9 @@ import { getToken } from "./token";
 const instance = axios.create({
   baseURL:
     "http://13.125.188.103/" /*요청을 www.aa.com/user로 보낸다면, www.aa.com까지 기록*/,
-  withCredentials: true, //자격요건: 쿠키
+
+  withCredentials: true,//자격요건: 쿠키
+
 });
 
 // 쿠키를 요청에 포함하고 싶으면 다음 2가지 작업을 해주면 됩니다.
@@ -51,5 +53,13 @@ const apis = {
   //라이트
   greenLight: (article_id) => instance.post(`/api/article/${article_id}/green`), // 그린라이트
   redLight: (article_id) => instance.post(`/api/article/${article_id}/red`), // 레드라이트
+
+
 };
 export default apis;
+
+
+
+
+
+
