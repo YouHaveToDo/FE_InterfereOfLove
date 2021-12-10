@@ -13,11 +13,17 @@ const CommentList = (props) => {
   const dispatch = useDispatch();
   const comment = React.useRef();
   console.log(comment);
+
+  const [cm, setcm] = React.useState(false);
+  React.useEffect(()=>{
+
+  },[cm]);
   // const comment_id = comment;
   // console.log(comment_id);
   const deleteComment = (e) => {
     console.log(e.target.id);
-    dispatch(commentActions.deleteCommentDB());
+    dispatch(commentActions.deleteCommentDB(e.target.id));
+    setcm(e.target.id);
   };
   const a = props.comment;
   console.log(a);
@@ -26,9 +32,9 @@ const CommentList = (props) => {
       <CommentBox>
         {props.comment.map((i, index) => {
           return (
-            <CommentItem key={index} id={i.comment_id}>
+            <CommentItem key={index} ref={comment} id={i.comment_id}>
               댓글 : {i.comment}
-              <ImageB float={"right"} _onClick={deleteComment} />
+              <ImageB float={"right"} id={i.comment_id} _onClick={deleteComment} />
             </CommentItem>
           );
         })}
