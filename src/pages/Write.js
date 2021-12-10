@@ -31,22 +31,22 @@ const Write = (props) => {
     setContent(e.target.value);
   };
 
-  console.log(type, title, content)
+  console.log(type, title, content);
 
   const post_info = {
     type: type,
     title: title,
     content: content,
   };
-  
+
   const addPost = () => {
-    if(!post_info.title){
+    if (!post_info.title) {
       window.alert("제목 입력해주세요!!😎");
       return;
-    }else if(!post_info.content) {
+    } else if (!post_info.content) {
       window.alert("내용 입력해 주세요!!😎");
       return;
-    }else if(!post_info.type) {
+    } else if (!post_info.type) {
       window.alert("그린라이트 or 고민상담소 체크 해주세요!!😎");
       return;
     }
@@ -77,7 +77,7 @@ const Write = (props) => {
           <input
             type="radio"
             name="type"
-            value="그린라이트"
+            value="greenlight"
             onChange={changeType}
           />
           <Text margin="4px 0 0 0" noto size="14px">
@@ -86,7 +86,7 @@ const Write = (props) => {
           <input
             type="radio"
             name="type"
-            value="고민상담소"
+            value="counseling"
             onChange={changeType}
           />
           <Text margin="4px 0 0 0" noto size="14px">
@@ -94,9 +94,7 @@ const Write = (props) => {
           </Text>
         </Grid>
         <Grid margin="160px 0 0 0">
-          <Button 
-          _onClick={addPost}
-          />
+          <Button _onClick={addPost} />
         </Grid>
       </Grid>
     </DetailPage>

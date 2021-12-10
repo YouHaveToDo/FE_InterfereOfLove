@@ -9,13 +9,17 @@ import apis from "../shared/apis";
 import { postActions } from "../redux/modules/post";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
+import { history } from "../redux/configureStore";
 
 const Detail = (props) => {
   const dispatch = useDispatch();
   const params = useParams();
+  const user_id = params.user_id;
+  const _article_id = Number(params.article_id);
   console.log(params);
+  console.log(_article_id);
   React.useEffect(() => {
-    dispatch(postActions.getPostDetailDB(params));
+    dispatch(postActions.getPostDetailDB(_article_id));
   }, []);
   const article_info = useSelector((state) => {
     console.log(state);
@@ -28,6 +32,7 @@ const Detail = (props) => {
         try {
           console.log("lightDB(green) try!!");
           const response = await apis.greenLight(article_id);
+          console.log("비동기 통신 완료됨");
           console.log(response);
         } catch (error) {
           console.log(error);
@@ -56,7 +61,12 @@ const Detail = (props) => {
               dispatch(postActions.deletePostDB(params.article_id));
             }}
           />
-          <ImageA />
+          <ImageA
+            _onClick={() => {
+              console.log(`/edit/${_article_id}/${user_id}`);
+              history.push(`/edit/${_article_id}/${user_id}`);
+            }}
+          />
         </Grid>
         <Grid margin="0 0 30px 0">
           <Text>{article_info.nickname}</Text>
@@ -82,10 +92,6 @@ const Detail = (props) => {
             border="1px solid #000"
             padding="0 0 20px 0"
           >
-            동아리에서 만난 후배가 있습니다. 어느 순간부터 제 앞에서 웃는 모습을
-            자주 보여줍니다.
-            <br />.<br />.<br />.<br />.<br />.<br />.<br />.<br />
-            ..... 이거 그린 라이트 인가요
             {article_info.content}
           </Text>
         </Grid>

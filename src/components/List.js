@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import {history} from "../redux/configureStore";
+import { history } from "../redux/configureStore";
 
 import styled from "styled-components";
 import Text from "../elements/Text_01";
@@ -8,7 +8,7 @@ import Grid from "../elements/Grid_01";
 import Items from "./Item";
 const List = (props) => {
   console.log(props.post_list);
-  
+
   const post_list = props.post_list;
 
   return (
@@ -19,13 +19,14 @@ const List = (props) => {
         </Text>
         {post_list.map((p, idx) => {
           return (
-          <Items 
-            key={p.article_id}
-            post_list={p} 
-            _onClick={()=>{
-              history.push(`/detail/${p.article_id}/${p.username}`)
-            }}
-           />);
+            <Items
+              key={p.article_id}
+              post_list={p}
+              _onClick={() => {
+                history.push(`/detail/${p.article_id}/${p.username}`);
+              }}
+            />
+          );
         })}
       </Grid>
     </Ellist>
@@ -39,6 +40,7 @@ const Ellist = styled.div`
   border-radius: 30px;
   position: absolute;
   bottom: 0;
+  overflow: scroll;
 `;
 
 export default List;
