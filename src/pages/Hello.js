@@ -3,6 +3,7 @@ import styled, { keyframes } from "styled-components";
 import bgImage from "../images/hollo_background.png";
 import LoveLogo from "../images/love_logo.png";
 import { history } from "../redux/configureStore";
+import { Button } from "../elements/index_02";
 
 const Hello = (props) => {
   return (
@@ -10,16 +11,18 @@ const Hello = (props) => {
       <HelloBox>
         <HelloItems>
           <Logo />
-          <SubTitle>역시 남의 연애가 개꿀잼 😆</SubTitle>
+          <SubTitle>알지? 남의 연애가 개꿀잼 😆</SubTitle>
           <MainTitle>연애의 참견</MainTitle>
         </HelloItems>
-        <ButtonStart
-          onClick={() => {
+        <Button
+          is_hello
+          bgColor="#fff"
+          color="#ff4b3a"
+          text="시작하기"
+          _onClick={() => {
             history.push("/login");
           }}
-        >
-          <p>시작하기</p>
-        </ButtonStart>
+        ></Button>
       </HelloBox>
     </React.Fragment>
   );
@@ -58,7 +61,7 @@ const HelloBox = styled.div`
   position: relative;
   top: 0;
   left: 0;
-  background-color: #FF4B3A;
+  background-color: #ff4b3a;
   background-image: url(${bgImage});
   background-size: cover;
   background-repeat: no-repeat;
@@ -71,13 +74,13 @@ const HelloItems = styled.div`
   height: auto;
   position: absolute;
   left: 8%;
-  top: 8%;
+  top: 5rem;
 `;
 
 const Logo = styled.div`
   width: 100px;
   height: 90px;
-  margin-bottom: 8px;
+  margin-bottom: 5px;
   background-image: url(${LoveLogo});
   background-position: center;
   background-repeat: no-repeat;
@@ -89,43 +92,13 @@ const Logo = styled.div`
 const SubTitle = styled.p`
   color: #fff;
   font-size: 18px;
-  margin-bottom: 25px;
+  margin-bottom: 15px;
   padding-left: 5px;
 `;
 
 const MainTitle = styled.h1`
   color: #fff;
   font-size: 55px;
-`;
-
-const ButtonStart = styled.div`
-  width: 314px;
-  height: 70px;
-  border-radius: 30px;
-  border: none;
-  background-color: #fff;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: 7vh;
-  color: #FF4B3A;
-  text-align: center;
-  line-height: 70px;
-
-  &:hover {
-    background-color: #ffa198;
-    transition: 0.55s;
-  }
-
-  &:not(:hover) {
-    background-color: #ffffff;
-    transition: 0.55s;
-  }
-
-  &:hover > p {
-    color: #ffffff;
-    transition: 0.35s;
-  }
 `;
 
 export default Hello;

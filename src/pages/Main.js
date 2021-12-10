@@ -27,6 +27,7 @@ const Main = (props) => {
 
   return (
     <div>
+
       <ImageC />
       <Grid padding="0 0 0 30px">
         <SubTitle>역시 남의 연애가 개꿀잼😆</SubTitle>
@@ -40,6 +41,7 @@ const Main = (props) => {
       >
         +
       </Btn>
+
     </div>
   );
 };
@@ -50,13 +52,14 @@ Main.defaultProps = {
 
 const SubTitle = styled.p`
   position: absolute;
-  top: 198px;
+  top: 20vh;
   color: #fff;
+  padding-left: 4px;
   font-size: 20px;
 `;
 const Title = styled.p`
   position: absolute;
-  top: 230px;
+  top: 24vh;
   font-size: 48px;
   color: #fff;
 `;
@@ -65,13 +68,14 @@ const Btn = styled.div`
   height: 68px;
   border-radius: 50%;
   position: absolute;
-  background-color: #fa4a0c;
+  background-color: #FF4B3A;
   bottom: 39px;
   right: 25px;
   color: #fff;
   font-size: 50px;
   text-align: center;
   line-height: 80px;
+  box-shadow: 0px 5px 10px rgba(255, 75, 58, 0.5);
 `;
 
 export default Main;

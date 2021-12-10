@@ -2,6 +2,7 @@ import axios from "axios";
 import { getToken } from "./token";
 
 const instance = axios.create({
+
   baseURL:
     "http://13.125.188.103/" /*요청을 www.aa.com/user로 보낸다면, www.aa.com까지 기록*/,
 
@@ -21,6 +22,7 @@ const instance = axios.create({
 //Accept : 클라이언트 자신이 원하는 미디어 타입 및 우선순위를 알린다.
 // `headers`는 서버에 전송 될 사용자 정의 헤더 입니다. headers: { 'X-Requested-With': 'XMLHttpRequest' }
 
+
 instance.interceptors.request.use((config) => {
   config.headers["Content-Type"] = "application/json; charset=utf-8";
   config.headers["X-Requested-With"] = "XMLHttpRequest";
@@ -30,17 +32,31 @@ instance.interceptors.request.use((config) => {
 });
 
 const apis = {
-  // 회원가입
-  signup: (userinfo) => instance.post("/user/signup", userinfo), //회원가입
 
   //로그인
-  login: (userinfo) => instance.post("/user/login", userinfo), //로그인
+  login: (data) =>
+    instance.post("/user/signin", {
+      username: data.username,
+      password: data.password,
+    }),
+
+  // 회원가입
+  signup: (data) =>
+    instance.post("/user/signup", {
+      username: data.username,
+      nickname: data.nickname,
+      password: data.password,
+      password2: data.password2,
+    }),
+
 
   //게시물
   getPost: () => instance.get("/home"), //게시글 조회
   addPost: (article_info) => instance.post(`/api/article`, article_info), //게시글 작성
+
   updatePost: (article_id, article_infos) =>
     instance.put(`/api/article/${article_id}`, article_infos), //게시글 수정
+
   getPostDetail: (article_id) => instance.get(`/article/${article_id}`), //게시글 상세페이지 조회
   deletePostt: (article_id) => instance.delete(`/api/article/${article_id}`), //게시글 삭제
 
@@ -50,6 +66,7 @@ const apis = {
     instance.post(`/api/commnet/${article_id}`, comment_info), // 댓글 작성
   deleteComment: (comment_id) => instance.delete(`/api/commnet/${comment_id}`), // 댓글 삭제
 
+
   //라이트
   greenLight: (article_id) => instance.post(`/api/article/${article_id}/green`), // 그린라이트
   redLight: (article_id) => instance.post(`/api/article/${article_id}/red`), // 레드라이트
@@ -57,6 +74,7 @@ const apis = {
 
 };
 export default apis;
+
 
 
 

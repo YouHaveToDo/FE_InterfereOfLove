@@ -14,7 +14,7 @@ const List = (props) => {
   return (
     <Ellist>
       <Grid padding="20px">
-        <Text margin="0 0 0 5px" color="#FF4B3A">
+        <Text margin="5px 0 0 5px" color="#FF4B3A">
           오늘의 참견 리스트 👀
         </Text>
         {post_list.map((p, idx) => {
@@ -35,7 +35,7 @@ const List = (props) => {
 const Ellist = styled.div`
   width: 100%;
   background-color: #fff;
-  height: 586px;
+  height: 66.5%;
   border-radius: 30px;
   position: absolute;
   bottom: 0;

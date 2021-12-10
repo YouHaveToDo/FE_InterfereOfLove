@@ -15,7 +15,7 @@ const ElButton = styled.button`
   width: 100%;
   height: 70px;
   border-radius: 30px;
-  background-color: #fa4a0c;
+  background-color: #FF4B3A;
   border: none;
   color: #fff;
   font-family: BMDOHYEON;

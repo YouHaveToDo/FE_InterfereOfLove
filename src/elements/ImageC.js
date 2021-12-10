@@ -8,8 +8,10 @@ const ImageC = (props) => {
 
 const Img = styled.img`
   display: inline-block;
-  margin-left: -32px;
-  margin-top: -30px;
+  position: absolute;
+  top: -1.5vh;
+  left: -48px;
+  background-color: #FF4B3A;
 `;
 
 export default ImageC;

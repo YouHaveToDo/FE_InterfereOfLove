@@ -14,6 +14,7 @@ const Input = (props) => {
     BT,
     TR,
     Pfont,
+    FF
   } = props;
 
   if (multiLine) {
@@ -39,6 +40,7 @@ const Input = (props) => {
           Pcolor={Pcolor}
           BT={BT}
           TR={TR}
+          FF={FF}
           type={type}
           placeholder={placeholder}
           onChange={_onChange}
@@ -57,6 +59,7 @@ Input.defaultProps = {
   Pcolor: false,
   TR: false,
   Pfont: false,
+  FF: false,
   _onChange: () => {},
 };
 
@@ -64,9 +67,13 @@ const ElTextarea = styled.textarea`
   border: 1px solid #212121;
   width: 100%;
   padding: 12px 4px;
+  letter-spacing : 0.03rem;
+  color: #efefef;
 `;
 
 const ElInput = styled.input`
+  letter-spacing : 0.03rem;
+  font-family: ${(props) => (props.FF ? `${props.FF};` : "BMDOHYEON")};
   border: none;
   font-size: 17px;
   border-bottom: 1px solid #efefef;
