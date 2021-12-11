@@ -14,27 +14,37 @@ const CommentList = (props) => {
   const comment = React.useRef();
   console.log(comment);
 
-  const [cm, setcm] = React.useState(false);
-  React.useEffect(()=>{
-
-  },[cm]);
   // const comment_id = comment;
   // console.log(comment_id);
   const deleteComment = (e) => {
-    console.log(e.target.id);
     dispatch(commentActions.deleteCommentDB(e.target.id));
-    setcm(e.target.id);
   };
   const a = props.comment;
   console.log(a);
+  console.log(props.user_id);
+  console.log(props.username);
   return (
     <React.Fragment>
       <CommentBox>
         {props.comment.map((i, index) => {
           return (
-            <CommentItem key={index} ref={comment} id={i.comment_id}>
+            <CommentItem
+              key={index}
+              ref={comment}
+              id={i.comment_id}
+              onClick={deleteComment}
+            >
+
               댓글 : {i.comment}
-              <ImageB float={"right"} id={i.comment_id} _onClick={deleteComment} />
+
+             {(props.user_id == props.username) && (
+                <ImageB
+                float={"right"}
+                id={i.comment_id}
+                onClick={props._onClick}
+              />
+              )}
+          
             </CommentItem>
           );
         })}
@@ -45,6 +55,7 @@ const CommentList = (props) => {
 
 CommentList.defaultProps = {
   post_id: null,
+  _onClick: () => {},
 };
 
 const CommentBox = styled.div`

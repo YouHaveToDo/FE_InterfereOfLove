@@ -16,16 +16,16 @@ import Button from "../elements/Button_01";
 const Write = (props) => {
   const dispatch = useDispatch();
 
-  const [type, setType] = React.useState("");
+ 
   const [title, setTitle] = React.useState("");
   const [content, setContent] = React.useState("");
+  const [type, setType] = React.useState("");
+
   const params = useParams();
   console.log(params);
+
   const user_name = params.username;
   console.log(user_name);
-  const changeType = (e) => {
-    setType(e.target.value);
-  };
 
   const changeTitle = (e) => {
     setTitle(e.target.value);
@@ -33,6 +33,10 @@ const Write = (props) => {
 
   const changeContent = (e) => {
     setContent(e.target.value);
+  };
+  
+  const changeType = (e) => {
+    setType(e.target.value);
   };
 
   console.log(type, title, content);
@@ -44,16 +48,16 @@ const Write = (props) => {
   };
 
   const addPost = () => {
-    // if (!post_info.title) {
-    //   window.alert("제목 입력해주세요!!😎");
-    //   return;
-    // } else if (!post_info.content) {
-    //   window.alert("내용 입력해 주세요!!😎");
-    //   return;
-    // } else if (!post_info.type) {
-    //   window.alert("그린라이트 or 고민상담소 체크 해주세요!!😎");
-    //   return;
-    // }
+    if (!post_info.title) {
+      window.alert("제목 입력해주세요!!😎");
+      return;
+    } else if (!post_info.content) {
+      window.alert("내용 입력해 주세요!!😎");
+      return;
+    } else if (!post_info.type) {
+      window.alert("그린라이트 or 고민상담소 체크 해주세요!!😎");
+      return;
+    }
 
     dispatch(postActions.addPostDB(post_info));
     history.push(`/main/${user_name}`);
@@ -83,7 +87,7 @@ const Write = (props) => {
             type="radio"
             name="type"
             value="greenlight"
-            _onChange={changeType}
+            onChange={changeType}
           />
           <Text margin="4px 0 0 0" noto size="14px">
             그린라이트
@@ -92,7 +96,7 @@ const Write = (props) => {
             type="radio"
             name="type"
             value="counseling"
-            _onChange={changeType}
+            onChange={changeType}
           />
           <Text margin="4px 0 0 0" noto size="14px">
             고민상담소

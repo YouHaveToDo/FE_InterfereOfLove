@@ -77,7 +77,7 @@ const addPostDB = (post_info, user_name) => {
       const response = await apis.addPost(article_info);
       console.log(response);
       console.log(user_name);
-      // history.push(`/main/${user_name}`);
+       history.push(`/main/${user_name}`);
     } catch (error) {
       console.log(error);
     }
@@ -138,7 +138,7 @@ const getPostDetailDB = (article_id) => {
         greenCount: data.greenCount,
         redCount: data.redCount,
       };
-
+     
       dispatch(getDetailPost(articleOne));
     } catch (error) {
       console.log(error);
