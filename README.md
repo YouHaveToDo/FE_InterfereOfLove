@@ -1,4 +1,4 @@
-# 👀 연애의 참견 (Back-End)
+# 👀 연애의 참견 (Front-End)
 ![998](https://user-images.githubusercontent.com/87135478/145660246-125080fe-e615-434e-a9dc-032f16056348.png)
 
 
@@ -112,11 +112,7 @@
 <details>
   <summary> 1. Import로 불러온 input 컴포넌트에는 useRef를 사용하여 dom에 접근할 수 없다.</summary>
   <br />
-  <div>
-    &nbsp;&nbsp;&nbsp;&nbsp;<b>application.properties 파일 내, Timezone 설정 추가</b>
-    <div class="colorscripter-code" style="color:#010101;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important; position:relative !important;overflow:auto">
-→ useRef로는 자식 컴포넌트 직접 접근할 수 없기 때문에 forwardRef를 사용해서 props로 ref값을 받아옴. 
-</div>
+  <div>→ useRef로는 자식 컴포넌트 직접 접근할 수 없기 때문에 forwardRef를 사용해서 props로 ref값을 받아옴</div>
   </div>
 </details>
 
