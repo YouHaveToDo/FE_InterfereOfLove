@@ -110,7 +110,7 @@
 # 💡 Trouble Shooting
 
 <details>
-  <summary> 1. Import로 불러온 input 컴포넌트에는 useRef를 사용하여 dom에 접근할 수 없다.</summary>
+  <summary>1. Import로 불러온 input 컴포넌트에는 useRef를 사용하여 dom에 접근할 수 없다.</summary>
   <br />
   <div>
     → useRef로는 자식 컴포넌트 직접 접근할 수 없기 때문에 forwardRef를 사용해서 props로 ref값을 받아옴
@@ -118,9 +118,17 @@
 </details>
 
 <details>
-  <summary> 2. 리액트에서 input의 value에 임의로 값을 지정하면 value 속성 값으로만 컨트롤 할 수 있는 권한이 생기고,<br>사용자는 권한이 없기 때문에 input에 값을 넣으려고 해도 넣을 수 없게 된다.</summary>
+  <summary>2. 리액트에서 input의 value에 임의로 값을 지정하면 value 속성 값으로만 컨트롤 할 수 있는 권한이 생기고, 사용자는 권한이 없기 때문에 input에 값을 넣으려고 해도 넣을 수 없게 된다.</summary>
   <br />
   <div>
     → input 태그에 onChange 이벤트를 활용하여 수정이 완료된 value의 값을 가져올 수 있도록 하거나 input태그가 아닌 textarea 태그로 변경하여 innerText로 접근한다.
+  </div>
+</details>
+
+<details>
+  <summary>3. 스토어에 저장하지 않고 비통기 통신으로 바로 가져오는 데이터는 새로고침을 하지 않으면 화면에 변경된 데이터가 적용되지 않는다. </summary>
+  <br />
+  <div>
+    → 이 부분은 리듀서를 초반에 만들지 않았기 때문에 다시 만들기보다는(이미 수정하기에는 너무 뒤로 돌아가야 해서..) useState를 통해서 임의의 상태를 만들고 onClick 이벤트를 붙여서 이벤트가 발생함과 동시에 비동기 통신과 state의 변화를 일으켜 화면이 변화하도록 만들었다
   </div>
 </details>
