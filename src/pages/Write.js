@@ -15,8 +15,6 @@ import Button from "../elements/Button_01";
 
 const Write = (props) => {
   const dispatch = useDispatch();
-
- 
   const [title, setTitle] = React.useState("");
   const [content, setContent] = React.useState("");
   const [type, setType] = React.useState("");
@@ -35,6 +33,10 @@ const Write = (props) => {
     setContent(e.target.value);
   };
   
+  const changeType = (e) => {
+    setType(e.target.value);
+  };
+
   const changeType = (e) => {
     setType(e.target.value);
   };

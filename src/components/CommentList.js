@@ -18,6 +18,10 @@ const CommentList = (props) => {
   // console.log(comment_id);
   const deleteComment = (e) => {
     dispatch(commentActions.deleteCommentDB(e.target.id));
+
+    window.location.reload();
+
+
   };
   const a = props.comment;
   console.log(a);
@@ -35,6 +39,7 @@ const CommentList = (props) => {
               onClick={deleteComment}
             >
 
+
               댓글 : {i.comment}
 
              {(props.user_id == props.username) && (
@@ -43,8 +48,10 @@ const CommentList = (props) => {
                 id={i.comment_id}
                 onClick={props._onClick}
               />
+
               )}
           
+
             </CommentItem>
           );
         })}

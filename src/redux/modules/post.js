@@ -93,7 +93,7 @@ const updatePostDB = (article_id, article_infos) => {
       const response = await apis.updatePost(article_id, article_infos);
       console.log(response);
 
-      history.push(`/main/${username}`);
+      history.push(`/main/${article_id}`);
     } catch (error) {
       console.log(error);
     }

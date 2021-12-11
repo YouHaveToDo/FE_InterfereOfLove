@@ -162,6 +162,7 @@ const Detail = (props) => {
                     comment.current.value
                   )
                 );
+                window.location.reload();
               }}
             />
             <CommentList
