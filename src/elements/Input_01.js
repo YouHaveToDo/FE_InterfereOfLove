@@ -2,7 +2,10 @@ import React from "react";
 import styled from "styled-components";
 
 const Input = React.forwardRef(
-  ({ borderB, placeholder, height, value, _onClick, _onChange, children }, ref) => {
+  (
+    { borderB, placeholder, height, value, _onClick, _onChange, children },
+    ref
+  ) => {
     return (
       <ElTextarea
         borderB={borderB}
@@ -28,6 +31,7 @@ Input.defaultProps = {
 const ElTextarea = styled.textarea`
   border: none;
   width: 100%;
+  resize: none;
   ${(props) => (props.height ? `height: ${props.height};` : "")}
   ${(props) => (props.borderB ? `border-bottom: ${props.borderB};` : "")}
 `;

@@ -145,6 +145,7 @@ const Detail = (props) => {
               dispatch(
                 commentActions.addCommentDB(_article_id, comment.current.value)
               );
+              window.location.reload();
             }}
           />
           <CommentList comment={comment_info} />
