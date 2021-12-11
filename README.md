@@ -114,7 +114,9 @@
   <br />
   <div>
     &nbsp;&nbsp;&nbsp;&nbsp;<b>application.properties 파일 내, Timezone 설정 추가</b>
-    <div class="colorscripter-code" style="color:#010101;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important; position:relative !important;overflow:auto"><table class="colorscripter-code-table" style="margin:0;padding:0;border:none;background-color:#fafafa;border-radius:4px;" cellspacing="0" cellpadding="0"><tr><td style="padding:6px;border-right:2px solid #e5e5e5"><div style="margin:0;padding:0;word-break:normal;text-align:right;color:#666;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;line-height:130%"><div style="line-height:130%">1</div></div></td><td style="padding:6px 0;text-align:left"><div style="margin:0;padding:0;color:#010101;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;line-height:130%"><div style="padding:0 6px; white-space:pre; line-height:130%">spring.datasource.url<span style="color:#0086b3"></span><span style="color:#a71d5d">=</span>{DB주소}?serverTimezone<span style="color:#0086b3"></span><span style="color:#a71d5d">=</span>Asia<span style="color:#0086b3"></span><span style="color:#a71d5d">/</span>Seoul</div></div></td></tr></table></div>
+    <div class="colorscripter-code" style="color:#010101;font-family:Consolas, 'Liberation Mono', Menlo, Courier, monospace !important; position:relative !important;overflow:auto">
+→ useRef로는 자식 컴포넌트 직접 접근할 수 없기 때문에 forwardRef를 사용해서 props로 ref값을 받아옴. 
+</div>
   </div>
 </details>
 
