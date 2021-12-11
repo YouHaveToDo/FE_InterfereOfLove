@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Text from "../elements/Text_01";
 import Grid from "../elements/Grid_01";
+import iconImage from "../images/greenlight_icon.png";
 
 const Items = (props) => {
   // console.log(props.post_list);
@@ -9,7 +10,7 @@ const Items = (props) => {
   return (
     <Item onClick={_onClick}>
       <Grid margin="0 0 0 0" flex>
-        <Icon></Icon>
+        <Icon src={iconImage}></Icon>
         <Grid padding="0 30px 0 10px">
           <Text color="#FA4A0C" size="10px">
             {post_list.type}
@@ -31,11 +32,12 @@ const Items = (props) => {
   );
 };
 
-const Icon = styled.div`
+const Icon = styled.img`
   width: 47px;
   height: 47px;
   border-radius: 10px;
-  background-color: yellow;
+  /* background-image: url("../images/greenlight_icon.png"); */
+  /* background-color: yellow; */
 `;
 
 const Item = styled.div`
