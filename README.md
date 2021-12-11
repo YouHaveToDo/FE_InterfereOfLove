@@ -110,7 +110,7 @@
 # 💡 Trouble Shooting
 
 <details>
-  <summary> 1. 글 작성 시간이 현재 시간과 9시간 차이가 나는 문제 </summary>
+  <summary> 1. Import로 불러온 input 컴포넌트에는 useRef를 사용하여 dom에 접근할 수 없다.</summary>
   <br />
   <div>
     &nbsp;&nbsp;&nbsp;&nbsp;<b>application.properties 파일 내, Timezone 설정 추가</b>
