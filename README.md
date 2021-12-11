@@ -11,7 +11,7 @@
 # 👥 멤버
 - Back-end: [김종욱](https://github.com/bellpro), [김주란](https://github.com/joorani), [오규화](https://github.com/59-devv)
 - Front-end: [신항민](https://www.naver.com), [전용태](https://www.naver.com), [정종찬](https://www.naver.com)
-- [\[Front-End Github\]](https://github.com/youHaveToDo/FE_interfereOfLove)
+- [\[Back-End Github\]](https://github.com/bellpro/BE_InterfereOfLove)
 <br />
 
 # 🗓 프로젝트 기간
