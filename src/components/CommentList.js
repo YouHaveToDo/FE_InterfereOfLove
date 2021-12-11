@@ -21,9 +21,12 @@ const CommentList = (props) => {
 
     window.location.reload();
 
+
   };
   const a = props.comment;
   console.log(a);
+  console.log(props.user_id);
+  console.log(props.username);
   return (
     <React.Fragment>
       <CommentBox>
@@ -35,12 +38,20 @@ const CommentList = (props) => {
               id={i.comment_id}
               onClick={deleteComment}
             >
+
+
               댓글 : {i.comment}
-              <ImageB
+
+             {(props.user_id == props.username) && (
+                <ImageB
                 float={"right"}
                 id={i.comment_id}
                 onClick={props._onClick}
               />
+
+              )}
+          
+
             </CommentItem>
           );
         })}
